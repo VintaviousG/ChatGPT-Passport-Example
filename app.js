@@ -4,11 +4,14 @@ const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 const db = require('./db');
 const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
+// Load Dotenv
+dotenv.config();
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
