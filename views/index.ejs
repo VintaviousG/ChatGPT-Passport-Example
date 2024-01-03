@@ -1,0 +1,46 @@
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passport Mongoose Example</title>
+</head>
+<body>
+
+  <h1>Register/Login</h1>
+
+  <% if (!user) { %>
+    <h2>Register</h2>
+    <form id="registerForm" method="post" action="/auth/register">
+      <label for="registerUsername">Username:</label>
+      <input type="text" id="registerUsername" name="username" required>
+
+      <label for="registerPassword">Password:</label>
+      <input type="password" id="registerPassword" name="password" required>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <hr>
+
+    <h2>Login</h2>
+    <form id="loginForm" method="post" action="/auth/login">
+      <label for="loginUsername">Username:</label>
+      <input type="text" id="loginUsername" name="username" required>
+
+      <label for="loginPassword">Password:</label>
+      <input type="password" id="loginPassword" name="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+  <% } else { %>
+    <p>Welcome, <%= user.username %>!</p>
+    <form id="logoutForm" method="get" action="/auth/logout">
+      <button type="submit">Logout</button>
+    </form>
+  <% } %>
+
+</body>
+</html>
