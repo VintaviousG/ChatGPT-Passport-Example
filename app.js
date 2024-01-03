@@ -37,6 +37,9 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
+// Require and use the passport configuration
+require('./config/passport');
+
 // Routes
 app.use('/auth', authRoutes);
 
