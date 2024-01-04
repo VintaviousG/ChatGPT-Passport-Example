@@ -11,14 +11,21 @@ exports.registerUser = (req, res) => {
       return res.status(500).json({ error: 'Registration failed' });
     }
     passport.authenticate('local')(req, res, () => {
-      res.json({ success: true });
+        res.json({
+            success: true,
+    
+        });
+        console.log(req.body.username)
     });
   });
 };
-
+// What to do if the user is logged in
 exports.loginUser = passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/login',
+    // I think this goes back to a route if succeful or failed
+    successRedirect: '/auth/successLogin',
+    //If failed go back to the login page
+    failureRedirect: '/auth/login',
+  
 });
 
 exports.logoutUser = (req, res) => {
