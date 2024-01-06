@@ -24,7 +24,7 @@ exports.loginUser = passport.authenticate('local', {
     // I think this goes back to a route if succeful or failed
     successRedirect: '/',
     //If failed go back to the login page
-    failureRedirect: '/auth/login',
+    failureRedirect: '/',
   
 });
 
