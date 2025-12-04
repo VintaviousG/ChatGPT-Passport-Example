@@ -18,11 +18,12 @@ exports.registerUser = (req, res) => {
         console.log(req.body.username)
     });
   });
+  
 };
 // What to do if the user is logged in
 exports.loginUser = passport.authenticate('local', {
     // I think this goes back to a route if succeful or failed
-    successRedirect: '/',
+    successRedirect: '/auth/user',
     //If failed go back to the login page
     failureRedirect: '/',
   
@@ -35,6 +36,7 @@ exports.logoutUser = (req, res) => {
       return;
     }
   });
+  //go to 2500/ 
   res.redirect('/');
   console.log(`Logout Successful`);
   
